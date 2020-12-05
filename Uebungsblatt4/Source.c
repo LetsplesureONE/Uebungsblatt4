@@ -37,5 +37,18 @@ int main(void) {
 	//*
 	
 	//*/
+
+	//test exercise4
+	/*
+	test_pushPrint();
+	testListFindElement();
+	//*/
+
+	//test exercise5
+	//*
+	//testListGetIndexOf();
+	testListGetElementAtIndex();
+	//*/
+
 	return 0;
 }
