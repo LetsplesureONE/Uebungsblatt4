@@ -108,6 +108,7 @@ Element* listGetElementAtIndex(List* list, unsigned int index) {
 
 //exersice3
 boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
+	if (aIndex == bIndex)printf("Error cannot change position with itself\n"); return FALSE;
 	//get adresses of elements aIndex and bIndex
 	Element* aptr = list->head;
 	Element* bptr = list->head;
@@ -134,6 +135,17 @@ boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 	if ((aptr == NULL) || (bptr == NULL)) {
 		return FALSE;
 	}
+	//Nachfolger pointer tauschen
+	Element* tempnach = aptr->pSuccessor;
+	aptr->pSuccessor = bptr->pSuccessor;
+	bptr->pSuccessor = tempnach;
+	//vorgänger Verweise vertauschen
+	
+	bref->pSuccessor=aptr;
+	aref->pSuccessor = bptr;
+	return TRUE;
+
+
 }
 
 boolean listDeleteElement(List* list, unsigned int value) {

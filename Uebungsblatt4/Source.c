@@ -32,10 +32,18 @@ int main(void) {
 	printf("Found element at position %i\n", listGetIndexOfElement(testtastisch, 42));
 	printf("value of pos 8 %p\n", listGetElementAtIndex(testtastisch, 8));
 	printf("value of pos 22 %p\n", listGetElementAtIndex(testtastisch, 22));
+	free(testtastisch);
 	//*/
 	//testint exercise3
 	//*
-	
+	List* testtastisch = listCreate();
+	listFillRandom(testtastisch, 42, 10, 1, 100);
+	listPrint(testtastisch);
+	listSwapElements(testtastisch, 2,2);
+	listSwapElements(testtastisch, 0, 1);
+	listPrint(testtastisch);
+	listSwapElements(testtastisch, 2, 3);
+	listPrint(testtastisch);
 	//*/
 
 	//test exercise4
@@ -47,7 +55,7 @@ int main(void) {
 	//test exercise5
 	//*
 	//testListGetIndexOf();
-	testListGetElementAtIndex();
+	//testListGetElementAtIndex();
 	//*/
 
 	return 0;

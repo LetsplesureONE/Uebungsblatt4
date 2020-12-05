@@ -5,7 +5,7 @@ void test_pushPrint(void);
 void testListFindElement(void);
 void printfindelemtest(List* list, int value); //simplyfying 4b ;)
 void testListGetElementAtIndex(void);
-unsigned testListGetIndexOf(void);
+void testListGetIndexOf(void);
 
 //exercise4
 void test_pushPrint(void) {
@@ -57,7 +57,7 @@ void printfindelemtest(List* list, int value) {
 }
 
 //exercise5
-unsigned testListGetIndexOf(void) {
+void testListGetIndexOf(void) {
 	List* noiceList = listCreate();
 	if(-1 ==listGetIndexOfElement(noiceList, 0)){
 		printf("True\n");
