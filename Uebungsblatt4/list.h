@@ -133,16 +133,18 @@ boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 	
 	//check if both elements exist
 	if ((aptr == NULL) || (bptr == NULL)) {
+		printf("got null pointer");
 		return FALSE;
 	}
 	//Nachfolger pointer tauschen
+	printf("aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
 	Element* tempnach = aptr->pSuccessor;
 	aptr->pSuccessor = bptr->pSuccessor;
 	bptr->pSuccessor = tempnach;
 	//vorgänger Verweise vertauschen
 	
-	bref->pSuccessor=aptr;
-	aref->pSuccessor = bptr;
+	(bref->pSuccessor)=aptr;
+	(aref->pSuccessor) = bptr;
 	return TRUE;
 
 
