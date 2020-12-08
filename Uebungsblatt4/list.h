@@ -123,6 +123,7 @@ boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 	//get adresses of elements of pointers to aIndex and bIndex
 	Element* aref = list->head;
 	Element* bref = list->head;
+	printf("1) aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
 	if (aIndex != 0) {
 		aref = listGetElementAtIndex(list, aIndex-1);
 	}
@@ -137,7 +138,7 @@ boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 		return FALSE;
 	}
 	//Nachfolger pointer tauschen
-	printf("aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
+	printf("2) aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
 	Element* tempnach = aptr->pSuccessor;
 	aptr->pSuccessor = bptr->pSuccessor;
 	bptr->pSuccessor = tempnach;
@@ -151,5 +152,18 @@ boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 }
 
 boolean listDeleteElement(List* list, unsigned int value) {
+	int elempos = listGetIndexOfElement(list, value);
+	if (elempos == -1) return FALSE;
+	if (elempos ==0) {
+		free (listPop(list));
+		return TRUE;
+	}
+	Element* elemptr = listGetElementAtIndex(list, elempos);
+	//Element* preelemptr = listGetElementAtIndex(list, (elempos - 1));
+	Element* postelemptr = listGetElementAtIndex(list, (elempos + 1));
+	printf("%p, %p \n", elemptr, postelemptr);
+	free(elemptr);
+	listGetElementAtIndex(list, (elempos - 1))->pSuccessor = postelemptr;
 
+	return TRUE;
 }
