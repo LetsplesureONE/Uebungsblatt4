@@ -39,11 +39,12 @@ int main(void) {
 	List* testtastisch = listCreate();
 	listFillRandom(testtastisch, 42, 10, 1, 100);
 	listPrint(testtastisch);
-	//listSwapElements(testtastisch, 2,2);
-	//listSwapElements(testtastisch, 0, 1);
-	//listPrint(testtastisch);
-	//listSwapElements(testtastisch, 2, 3);
-	//listPrint(testtastisch);
+	listSwapElements(testtastisch, 2,2);
+	listSwapElements(testtastisch, 0, 1);
+	listPrint(testtastisch);
+	listSwapElements(testtastisch, 2, 3);
+	listPrint(testtastisch);
+	/*
 	listDeleteElement(testtastisch, 5);
 	listPrint(testtastisch);
 	listDeleteElement(testtastisch, 10);

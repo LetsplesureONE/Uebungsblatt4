@@ -108,47 +108,22 @@ Element* listGetElementAtIndex(List* list, unsigned int index) {
 
 //exersice3
 boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
-	if (aIndex == bIndex)printf("Error cannot change position with itself\n"); return FALSE;
-	//get adresses of elements aIndex and bIndex
-	Element* aptr = list->head;
-	Element* bptr = list->head;
-	if (aIndex != 0) {
-		aptr = listGetElementAtIndex(list, aIndex);
-	}
-	
-	if (bIndex != 0) {
-		bptr = listGetElementAtIndex(list, bIndex);
-	}
-	
-	//get adresses of elements of pointers to aIndex and bIndex
-	Element* aref = list->head;
-	Element* bref = list->head;
-	printf("1) aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
-	if (aIndex != 0) {
-		aref = listGetElementAtIndex(list, aIndex-1);
-	}
-	
-	if (bIndex != 0) {
-		bref = listGetElementAtIndex(list, bIndex-1);
-	}
-	
-	//check if both elements exist
-	if ((aptr == NULL) || (bptr == NULL)) {
-		printf("got null pointer");
+	printf("Initialized swap sequence...\nSwapping element %i with %i\n", aIndex, bIndex);
+	if (aIndex == bIndex) {
+		printf("Error cannot change position with itself\n");
 		return FALSE;
 	}
-	//Nachfolger pointer tauschen
-	printf("2) aptr= %p, bptr= %p, aref= %p, bref= %p\n", aptr, bptr, aref, bref);
-	Element* tempnach = aptr->pSuccessor;
-	aptr->pSuccessor = bptr->pSuccessor;
-	bptr->pSuccessor = tempnach;
-	//vorgänger Verweise vertauschen
-	
-	(bref->pSuccessor)=aptr;
-	(aref->pSuccessor) = bptr;
+	//check if both elements exist
+	if ((listGetElementAtIndex(list, aIndex) == NULL) || (listGetElementAtIndex(list, bIndex) == NULL)) {
+		printf("got null pointer --> one element doesn't exist");
+		return FALSE;
+	}
+	//Werte auslesen und tauschen
+	int temp = listGetElementAtIndex(list, aIndex)->value;
+	//printf("temp = %i\n", temp);//debug
+	listGetElementAtIndex(list, aIndex)->value = listGetElementAtIndex(list, bIndex)->value;
+	listGetElementAtIndex(list, bIndex)->value = temp;
 	return TRUE;
-
-
 }
 
 boolean listDeleteElement(List* list, unsigned int value) {
