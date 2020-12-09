@@ -8,23 +8,23 @@ struct List {
 
 typedef struct List List;
 
-//exersice 1
+//exercise 1
 List* listCreate();
 void listPush(List* list, unsigned int value);
 Element* listPop(List* list);
 void listPrint(List* list);
 void listFillRandom(List* list, int seed, int anzahlWerte, int min, int max);
 
-//exersice2
+//exercise2
 Element* listFindElement(List* list, unsigned int value);
 int listGetIndexOfElement(List* list, unsigned int value);
 Element* listGetElementAtIndex(List* list, unsigned int index);
 
-//exersice3
+//exercise3
 boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex);
 boolean listDeleteElement(List* list, unsigned int value);
 
-//exersice1
+//exercise1
 
 List* listCreate() {
 	List* newlist = malloc(sizeof(List));
@@ -67,7 +67,7 @@ void listFillRandom(List* list, int seed, int anzahlWerte, int min, int max) {
 	
 }
 
-//exersice2
+//exercise2
 
 Element* listFindElement(List* list, unsigned int value) {
 	Element* elemptr = list->head;
@@ -106,7 +106,7 @@ Element* listGetElementAtIndex(List* list, unsigned int index) {
 	return (elemptr);
 }
 
-//exersice3
+//exercise3
 boolean listSwapElements(List* list, unsigned int aIndex, unsigned int bIndex) {
 	printf("Initialized swap sequence...\nSwapping element %i with %i\n", aIndex, bIndex);
 	if (aIndex == bIndex) {
